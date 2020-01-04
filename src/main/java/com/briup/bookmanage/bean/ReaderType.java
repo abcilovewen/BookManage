@@ -2,14 +2,12 @@ package com.briup.bookmanage.bean;
 
 import java.io.Serializable;
 
-public class Administrator implements Serializable {
+public class ReaderType implements Serializable {
     private Integer id;
 
-    private Integer age;
+    private String type;
 
-    private String name;
-
-    private String work;
+    private Integer readerId;
 
     private static final long serialVersionUID = 1L;
 
@@ -21,28 +19,20 @@ public class Administrator implements Serializable {
         this.id = id;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getType() {
+        return type;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
     }
 
-    public String getName() {
-        return name;
+    public Integer getReaderId() {
+        return readerId;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getWork() {
-        return work;
-    }
-
-    public void setWork(String work) {
-        this.work = work == null ? null : work.trim();
+    public void setReaderId(Integer readerId) {
+        this.readerId = readerId;
     }
 
     @Override
@@ -52,9 +42,8 @@ public class Administrator implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", age=").append(age);
-        sb.append(", name=").append(name);
-        sb.append(", work=").append(work);
+        sb.append(", type=").append(type);
+        sb.append(", readerId=").append(readerId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

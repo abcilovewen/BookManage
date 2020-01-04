@@ -6,7 +6,6 @@
     <result column="author" jdbcType="VARCHAR" property="author" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="price" jdbcType="DOUBLE" property="price" />
-    <result column="library_Id" jdbcType="INTEGER" property="libraryId" />
     <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="type" jdbcType="VARCHAR" property="type" />
   </resultMap>
@@ -69,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, author, name, price, library_Id, status, type
+    id, author, name, price, status, type
   </sql>
   <select id="selectByExample" parameterType="com.briup.bookmanage.bean.BookExample" resultMap="BaseResultMap">
     select
@@ -103,11 +102,9 @@
   </delete>
   <insert id="insert" parameterType="com.briup.bookmanage.bean.Book">
     insert into L_book (id, author, name, 
-      price, library_Id, status, 
-      type)
+      price, status, type)
     values (#{id,jdbcType=INTEGER}, #{author,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{price,jdbcType=DOUBLE}, #{libraryId,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}, 
-      #{type,jdbcType=VARCHAR})
+      #{price,jdbcType=DOUBLE}, #{status,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.briup.bookmanage.bean.Book">
     insert into L_book
@@ -123,9 +120,6 @@
       </if>
       <if test="price != null">
         price,
-      </if>
-      <if test="libraryId != null">
-        library_Id,
       </if>
       <if test="status != null">
         status,
@@ -146,9 +140,6 @@
       </if>
       <if test="price != null">
         #{price,jdbcType=DOUBLE},
-      </if>
-      <if test="libraryId != null">
-        #{libraryId,jdbcType=INTEGER},
       </if>
       <if test="status != null">
         #{status,jdbcType=VARCHAR},
@@ -179,9 +170,6 @@
       <if test="record.price != null">
         price = #{record.price,jdbcType=DOUBLE},
       </if>
-      <if test="record.libraryId != null">
-        library_Id = #{record.libraryId,jdbcType=INTEGER},
-      </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=VARCHAR},
       </if>
@@ -199,7 +187,6 @@
       author = #{record.author,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=DOUBLE},
-      library_Id = #{record.libraryId,jdbcType=INTEGER},
       status = #{record.status,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -218,9 +205,6 @@
       <if test="price != null">
         price = #{price,jdbcType=DOUBLE},
       </if>
-      <if test="libraryId != null">
-        library_Id = #{libraryId,jdbcType=INTEGER},
-      </if>
       <if test="status != null">
         status = #{status,jdbcType=VARCHAR},
       </if>
@@ -235,7 +219,6 @@
     set author = #{author,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       price = #{price,jdbcType=DOUBLE},
-      library_Id = #{libraryId,jdbcType=INTEGER},
       status = #{status,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

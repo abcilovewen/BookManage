@@ -11,8 +11,6 @@ public class Book implements Serializable {
 
     private Double price;
 
-    private Integer libraryId;
-
     private String status;
 
     private String type;
@@ -51,14 +49,6 @@ public class Book implements Serializable {
         this.price = price;
     }
 
-    public Integer getLibraryId() {
-        return libraryId;
-    }
-
-    public void setLibraryId(Integer libraryId) {
-        this.libraryId = libraryId;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -85,7 +75,6 @@ public class Book implements Serializable {
         sb.append(", author=").append(author);
         sb.append(", name=").append(name);
         sb.append(", price=").append(price);
-        sb.append(", libraryId=").append(libraryId);
         sb.append(", status=").append(status);
         sb.append(", type=").append(type);
         sb.append(", serialVersionUID=").append(serialVersionUID);

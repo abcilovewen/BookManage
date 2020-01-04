@@ -52,10 +52,8 @@
 		<!-- 映射配置 -->
 		<table tableName="L_administrator" domainObjectName="Administrator"></table>
 		<table tableName="L_book" domainObjectName="Book"></table>
-		<table tableName="L_fine" domainObjectName="Fine"></table>
-		<table tableName="L-FRB" domainObjectName="FRB"></table>
-		<table tableName="L_library" domainObjectName="Library"></table>
-		<table tableName="L_RB" domainObjectName="RB"></table>
+		<table tableName="L_borrow" domainObjectName="Borrow"></table>
 		<table tableName="L_reader" domainObjectName="Reader"></table>
+		<table tableName="L_readerType" domainObjectName="ReaderType"></table>
 	</context>
 </generatorConfiguration>

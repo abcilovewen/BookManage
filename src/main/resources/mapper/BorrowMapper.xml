@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.briup.bookmanage.mapper.FineMapper">
-  <resultMap id="BaseResultMap" type="com.briup.bookmanage.bean.Fine">
+<mapper namespace="com.briup.bookmanage.mapper.BorrowMapper">
+  <resultMap id="BaseResultMap" type="com.briup.bookmanage.bean.Borrow">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="date" jdbcType="TIMESTAMP" property="date" />
-    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="reader_id" jdbcType="INTEGER" property="readerId" />
+    <result column="book_id" jdbcType="INTEGER" property="bookId" />
+    <result column="B_date" jdbcType="TIMESTAMP" property="bDate" />
+    <result column="R_date" jdbcType="TIMESTAMP" property="rDate" />
+    <result column="fine" jdbcType="DOUBLE" property="fine" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,15 +68,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, date, price
+    id, reader_id, book_id, B_date, R_date, fine
   </sql>
-  <select id="selectByExample" parameterType="com.briup.bookmanage.bean.FineExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.briup.bookmanage.bean.BorrowExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from L_fine
+    from L_borrow
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,67 +87,96 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from L_fine
+    from L_borrow
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from L_fine
+    delete from L_borrow
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.briup.bookmanage.bean.FineExample">
-    delete from L_fine
+  <delete id="deleteByExample" parameterType="com.briup.bookmanage.bean.BorrowExample">
+    delete from L_borrow
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.briup.bookmanage.bean.Fine">
-    insert into L_fine (id, date, price
+  <insert id="insert" parameterType="com.briup.bookmanage.bean.Borrow">
+    insert into L_borrow (id, reader_id, book_id, 
+      B_date, R_date, fine
       )
-    values (#{id,jdbcType=INTEGER}, #{date,jdbcType=TIMESTAMP}, #{price,jdbcType=DOUBLE}
+    values (#{id,jdbcType=INTEGER}, #{readerId,jdbcType=INTEGER}, #{bookId,jdbcType=INTEGER}, 
+      #{bDate,jdbcType=TIMESTAMP}, #{rDate,jdbcType=TIMESTAMP}, #{fine,jdbcType=DOUBLE}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.briup.bookmanage.bean.Fine">
-    insert into L_fine
+  <insert id="insertSelective" parameterType="com.briup.bookmanage.bean.Borrow">
+    insert into L_borrow
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="date != null">
-        date,
+      <if test="readerId != null">
+        reader_id,
       </if>
-      <if test="price != null">
-        price,
+      <if test="bookId != null">
+        book_id,
+      </if>
+      <if test="bDate != null">
+        B_date,
+      </if>
+      <if test="rDate != null">
+        R_date,
+      </if>
+      <if test="fine != null">
+        fine,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="date != null">
-        #{date,jdbcType=TIMESTAMP},
+      <if test="readerId != null">
+        #{readerId,jdbcType=INTEGER},
       </if>
-      <if test="price != null">
-        #{price,jdbcType=DOUBLE},
+      <if test="bookId != null">
+        #{bookId,jdbcType=INTEGER},
+      </if>
+      <if test="bDate != null">
+        #{bDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rDate != null">
+        #{rDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fine != null">
+        #{fine,jdbcType=DOUBLE},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.briup.bookmanage.bean.FineExample" resultType="java.lang.Long">
-    select count(*) from L_fine
+  <select id="countByExample" parameterType="com.briup.bookmanage.bean.BorrowExample" resultType="java.lang.Long">
+    select count(*) from L_borrow
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update L_fine
+    update L_borrow
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.date != null">
-        date = #{record.date,jdbcType=TIMESTAMP},
+      <if test="record.readerId != null">
+        reader_id = #{record.readerId,jdbcType=INTEGER},
       </if>
-      <if test="record.price != null">
-        price = #{record.price,jdbcType=DOUBLE},
+      <if test="record.bookId != null">
+        book_id = #{record.bookId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bDate != null">
+        B_date = #{record.bDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rDate != null">
+        R_date = #{record.rDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fine != null">
+        fine = #{record.fine,jdbcType=DOUBLE},
       </if>
     </set>
     <if test="_parameter != null">
@@ -152,30 +184,45 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update L_fine
+    update L_borrow
     set id = #{record.id,jdbcType=INTEGER},
-      date = #{record.date,jdbcType=TIMESTAMP},
-      price = #{record.price,jdbcType=DOUBLE}
+      reader_id = #{record.readerId,jdbcType=INTEGER},
+      book_id = #{record.bookId,jdbcType=INTEGER},
+      B_date = #{record.bDate,jdbcType=TIMESTAMP},
+      R_date = #{record.rDate,jdbcType=TIMESTAMP},
+      fine = #{record.fine,jdbcType=DOUBLE}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.briup.bookmanage.bean.Fine">
-    update L_fine
+  <update id="updateByPrimaryKeySelective" parameterType="com.briup.bookmanage.bean.Borrow">
+    update L_borrow
     <set>
-      <if test="date != null">
-        date = #{date,jdbcType=TIMESTAMP},
+      <if test="readerId != null">
+        reader_id = #{readerId,jdbcType=INTEGER},
       </if>
-      <if test="price != null">
-        price = #{price,jdbcType=DOUBLE},
+      <if test="bookId != null">
+        book_id = #{bookId,jdbcType=INTEGER},
+      </if>
+      <if test="bDate != null">
+        B_date = #{bDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rDate != null">
+        R_date = #{rDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fine != null">
+        fine = #{fine,jdbcType=DOUBLE},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.briup.bookmanage.bean.Fine">
-    update L_fine
-    set date = #{date,jdbcType=TIMESTAMP},
-      price = #{price,jdbcType=DOUBLE}
+  <update id="updateByPrimaryKey" parameterType="com.briup.bookmanage.bean.Borrow">
+    update L_borrow
+    set reader_id = #{readerId,jdbcType=INTEGER},
+      book_id = #{bookId,jdbcType=INTEGER},
+      B_date = #{bDate,jdbcType=TIMESTAMP},
+      R_date = #{rDate,jdbcType=TIMESTAMP},
+      fine = #{fine,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
