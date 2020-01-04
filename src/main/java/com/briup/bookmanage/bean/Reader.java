@@ -11,6 +11,8 @@ public class Reader implements Serializable {
 
     private String name;
 
+    private Integer readerTypeid;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -45,6 +47,14 @@ public class Reader implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+    public Integer getReaderTypeid() {
+        return readerTypeid;
+    }
+
+    public void setReaderTypeid(Integer readerTypeid) {
+        this.readerTypeid = readerTypeid;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -55,6 +65,7 @@ public class Reader implements Serializable {
         sb.append(", sex=").append(sex);
         sb.append(", age=").append(age);
         sb.append(", name=").append(name);
+        sb.append(", readerTypeid=").append(readerTypeid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

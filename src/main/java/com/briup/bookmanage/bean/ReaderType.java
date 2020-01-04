@@ -7,8 +7,6 @@ public class ReaderType implements Serializable {
 
     private String type;
 
-    private Integer readerId;
-
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -27,14 +25,6 @@ public class ReaderType implements Serializable {
         this.type = type == null ? null : type.trim();
     }
 
-    public Integer getReaderId() {
-        return readerId;
-    }
-
-    public void setReaderId(Integer readerId) {
-        this.readerId = readerId;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -43,7 +33,6 @@ public class ReaderType implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", type=").append(type);
-        sb.append(", readerId=").append(readerId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

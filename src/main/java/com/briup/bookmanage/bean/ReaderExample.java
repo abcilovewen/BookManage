@@ -363,6 +363,66 @@ public class ReaderExample {
             addCriterion("name not between", value1, value2, "name");
             return (Criteria) this;
         }
+
+        public Criteria andReaderTypeidIsNull() {
+            addCriterion("reader_TypeId is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidIsNotNull() {
+            addCriterion("reader_TypeId is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidEqualTo(Integer value) {
+            addCriterion("reader_TypeId =", value, "readerTypeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidNotEqualTo(Integer value) {
+            addCriterion("reader_TypeId <>", value, "readerTypeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidGreaterThan(Integer value) {
+            addCriterion("reader_TypeId >", value, "readerTypeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("reader_TypeId >=", value, "readerTypeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidLessThan(Integer value) {
+            addCriterion("reader_TypeId <", value, "readerTypeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidLessThanOrEqualTo(Integer value) {
+            addCriterion("reader_TypeId <=", value, "readerTypeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidIn(List<Integer> values) {
+            addCriterion("reader_TypeId in", values, "readerTypeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidNotIn(List<Integer> values) {
+            addCriterion("reader_TypeId not in", values, "readerTypeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidBetween(Integer value1, Integer value2) {
+            addCriterion("reader_TypeId between", value1, value2, "readerTypeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReaderTypeidNotBetween(Integer value1, Integer value2) {
+            addCriterion("reader_TypeId not between", value1, value2, "readerTypeid");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
