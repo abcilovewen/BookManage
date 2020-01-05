@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.bookmanage.mapper.ex.ReaderEXMapper">
+
+    <resultMap id="searchType" type="com.briup.bookmanage.bean.ex.ReaderEX">
+        <id column="id" property="id"></id>
+        <result property="sex" column="sex"></result>
+        <result property="age" column="age"></result>
+        <result property="name" column="name"></result>
+        <collection property="readerType" ofType="com.briup.bookmanage.bean.ReaderType"
+                    column="id" select="scanType"></collection>
+    </resultMap>
+    <select id="findById" resultMap="searchType">
+        select r.*
+        from L_reader r, L_readerType rt
+        where
+        r.reader_TypeId = rt.id
+        and r.id = #{id}
+    </select>
+
+    <select id="findAll" resultMap="searchType">
+        select r.*
+        from L_reader r, L_readerType rt
+        where
+        r.reader_TypeId = rt.id
+    </select>
+    
+    <select id="search" resultMap="searchType">
+        select r.*
+        from L_reader r, L_readerType rt
+        where
+        r.reader_TypeId = rt.id
+        and r.name like #{word}
+
+    </select>
+
+    <select id="scanType" resultType="com.briup.bookmanage.bean.ReaderType">
+        select type
+        from L_readerType
+        where id = #{id}
+    </select>
+</mapper>
