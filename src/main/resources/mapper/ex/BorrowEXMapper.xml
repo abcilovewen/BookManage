@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.bookmanage.mapper.ex.BorrowEXMapper">
+    <resultMap id="abn" type="com.briup.bookmanage.bean.ex.BorrowEX">
+        <id property="id" column="id"></id>
+        <result property="rName" column="rName"></result>
+        <result property="bName" column="bName"></result>
+        <result property="bDate" column="bDate"></result>
+        <result property="rDate" column="rDate"></result>
+        <result property="fine" column="fine"></result>
+    </resultMap>
+    <select id="findAll" resultMap="abn">
+        select b1.id,r.name rName,b2.name bName,b1.B_date bDate,b1.R_date rDate,b1.fine
+        from L_borrow b1,L_book b2,L_reader r
+        where b1.reader_id=r.id
+        and b1.book_id=b2.id
+    </select>
+    <select id="selectBookName" resultMap="abn">
+        select b1.id,r.name rName,b2.name bName,b1.B_date bDate,b1.R_date rDate,b1.fine
+        from L_borrow b1,L_book b2,L_reader r
+        where b1.reader_id=r.id
+        and b1.book_id=b2.id
+        and b2.name like #{name}
+    </select>
+    <select id="selectReaderName" resultMap="abn">
+        select b1.id,r.name rName,b2.name bName,b1.B_date bDate,b1.R_date rDate,b1.fine
+        from L_borrow b1,L_book b2,L_reader r
+        where b1.reader_id=r.id
+        and b1.book_id=b2.id
+        and r.name like #{name}
+    </select>
+    <select id="selectName" resultMap="abn">
+        select b1.id,r.name rName,b2.name bName,b1.B_date bDate,b1.R_date rDate,b1.fine
+        from L_borrow b1,L_book b2,L_reader r
+        where b1.reader_id=r.id
+        and b1.book_id=b2.id
+        and ( b2.name like #{b2Name}or r.name like #{rName})
+    </select>
+</mapper>
