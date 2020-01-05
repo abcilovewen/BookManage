@@ -11,7 +11,9 @@ public class ReaderEX {
 
     private String name;
 
+
     private ReaderType readerType;
+
 
     public Integer getId() {
         return id;
@@ -44,6 +46,8 @@ public class ReaderEX {
     public void setName(String name) {
         this.name = name;
     }
+
+
 
     public ReaderType getReaderType() {
         return readerType;

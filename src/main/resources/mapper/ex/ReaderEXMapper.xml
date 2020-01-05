@@ -7,6 +7,7 @@
         <result property="sex" column="sex"></result>
         <result property="age" column="age"></result>
         <result property="name" column="name"></result>
+        <result property="reader_TypeId" column="reader_TypeId"></result>
         <collection property="readerType" ofType="com.briup.bookmanage.bean.ReaderType"
                     column="id" select="scanType"></collection>
     </resultMap>
@@ -19,24 +20,36 @@
     </select>
 
     <select id="findAll" resultMap="searchType">
-        select r.*
+        select r.*, rt.type
         from L_reader r, L_readerType rt
-        where
-        r.reader_TypeId = rt.id
+        where r.reader_TypeId = rt.id
     </select>
     
     <select id="search" resultMap="searchType">
         select r.*
         from L_reader r, L_readerType rt
-        where
-        r.reader_TypeId = rt.id
+        where r.reader_TypeId = rt.id
         and r.name like #{word}
-
     </select>
 
-    <select id="scanType" resultType="com.briup.bookmanage.bean.ReaderType">
+   <select id="scanType" resultType="com.briup.bookmanage.bean.ReaderType">
         select type
         from L_readerType
         where id = #{id}
     </select>
+
+<!--    <insert id="insert">-->
+<!--        insert into-->
+<!--        L_reader-->
+<!--        values (#{id},#{name},#{age},#{sex},#{reader_TypeId})-->
+<!--    </insert>-->
+
+<!--    <update id="update">-->
+<!--        update L_reader, L_readerType-->
+<!--        set id = {#id},-->
+<!--        sex = {#sex},-->
+<!--        age = {#age},-->
+<!--        name = #{name},-->
+<!--        readerType = {#readerType}-->
+<!--    </update>-->
 </mapper>

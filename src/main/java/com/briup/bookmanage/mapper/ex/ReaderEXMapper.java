@@ -9,4 +9,6 @@ public interface ReaderEXMapper {
     List<ReaderEX> findAll();
     ReaderEX findById(int id);
     List<ReaderEX> search(String word);
+    void insert(ReaderEX readerEX);
+    void update(ReaderEX readerEX);
 }

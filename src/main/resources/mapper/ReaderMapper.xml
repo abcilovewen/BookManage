@@ -6,7 +6,7 @@
     <result column="sex" jdbcType="VARCHAR" property="sex" />
     <result column="age" jdbcType="INTEGER" property="age" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="reader_TypeId" jdbcType="INTEGER" property="readerTypeid" />
+    <result column="readerType_id" jdbcType="INTEGER" property="readerTypeid" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -101,7 +101,7 @@
   </delete>
   <insert id="insert" parameterType="com.briup.bookmanage.bean.Reader">
     insert into L_reader (id, sex, age, 
-      name, reader_TypeId)
+      name, readerType_id)
     values (#{id,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
       #{name,jdbcType=VARCHAR}, #{readerTypeid,jdbcType=INTEGER})
   </insert>
