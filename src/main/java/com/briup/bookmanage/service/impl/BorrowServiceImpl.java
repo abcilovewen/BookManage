@@ -1,5 +1,6 @@
 package com.briup.bookmanage.service.impl;
 
+import com.briup.bookmanage.bean.Borrow;
 import com.briup.bookmanage.bean.ex.BorrowEX;
 import com.briup.bookmanage.mapper.BorrowMapper;
 import com.briup.bookmanage.mapper.ex.BorrowEXMapper;

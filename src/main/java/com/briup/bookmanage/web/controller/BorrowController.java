@@ -1,5 +1,6 @@
 package com.briup.bookmanage.web.controller;
 
+import com.briup.bookmanage.bean.Borrow;
 import com.briup.bookmanage.bean.ex.BorrowEX;
 import com.briup.bookmanage.service.IBorrowService;
 import com.briup.bookmanage.util.Message;

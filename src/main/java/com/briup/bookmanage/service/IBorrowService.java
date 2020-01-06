@@ -1,5 +1,6 @@
 package com.briup.bookmanage.service;
 
+import com.briup.bookmanage.bean.Borrow;
 import com.briup.bookmanage.bean.ex.BorrowEX;
 
 import java.util.List;
