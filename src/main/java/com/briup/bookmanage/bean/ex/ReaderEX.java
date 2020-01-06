@@ -1,6 +1,7 @@
 package com.briup.bookmanage.bean.ex;
 
 import com.briup.bookmanage.bean.ReaderType;
+import io.swagger.annotations.ApiModelProperty;
 
 public class ReaderEX {
     private Integer id;
@@ -13,6 +14,7 @@ public class ReaderEX {
 
     private Integer readerType_Id;
 
+    @ApiModelProperty(hidden = true)
     private ReaderType readerType;
 
 
@@ -56,5 +58,13 @@ public class ReaderEX {
 
     public void setReaderType(ReaderType readerType) {
         this.readerType = readerType;
+    }
+
+    public Integer getReaderType_Id() {
+        return readerType_Id;
+    }
+
+    public void setReaderType_Id(Integer readerType_Id) {
+        this.readerType_Id = readerType_Id;
     }
 }

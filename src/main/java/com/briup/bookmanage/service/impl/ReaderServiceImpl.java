@@ -20,13 +20,13 @@ public class ReaderServiceImpl implements IReaderService {
     private ReaderEXMapper readerEXMapper;
 
     @Override
-    public void addOrUpdate(Reader reader) throws RuntimeException {
-        if (reader == null){
+    public void addOrUpdate(ReaderEX readerEX) throws RuntimeException {
+        if (readerEX == null){
             throw new RuntimeException("参数错误");
-        } if (reader.getId() == null) {//添加
-            readerMapper.insert(reader);
+        } if (readerEX.getId() == null) {//添加
+            readerEXMapper.insert(readerEX);
         } else {// 修改
-            readerMapper.updateByPrimaryKey(reader);
+            readerEXMapper.update(readerEX);
         }
     }
 

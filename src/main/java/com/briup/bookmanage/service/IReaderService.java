@@ -6,7 +6,7 @@ import com.briup.bookmanage.bean.ex.ReaderEX;
 import java.util.List;
 
 public interface IReaderService {
-    void addOrUpdate(Reader reader) throws RuntimeException;
+    void addOrUpdate(ReaderEX readerEx) throws RuntimeException;
 
     ReaderEX selectById(int id) throws RuntimeException;
 
