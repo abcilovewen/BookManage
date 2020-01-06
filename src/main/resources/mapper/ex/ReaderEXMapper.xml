@@ -15,20 +15,20 @@
         select r.*
         from L_reader r, L_readerType rt
         where
-        r.reader_TypeId = rt.id
+        r.readerType_Id = rt.id
         and r.id = #{id}
     </select>
 
     <select id="findAll" resultMap="searchType">
         select r.*, rt.type
         from L_reader r, L_readerType rt
-        where r.reader_TypeId = rt.id
+        where r.readerType_Id = rt.id
     </select>
     
     <select id="search" resultMap="searchType">
         select r.*
         from L_reader r, L_readerType rt
-        where r.reader_TypeId = rt.id
+        where r.readerType_Id = rt.id
         and r.name like #{word}
     </select>
 
