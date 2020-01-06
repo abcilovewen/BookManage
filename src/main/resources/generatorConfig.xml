@@ -6,7 +6,7 @@
 <generatorConfiguration>
 
 	<classPathEntry
-		location="D:\Programming\IDEA\2019_KesheCode\repository\mysql\mysql-connector-java\8.0.18\mysql-connector-java-8.0.18.jar"/>
+		location="E:\lut\repository\mysql\mysql-connector-java\8.0.18\mysql-connector-java-8.0.18.jar"/>
 	<context id="DB2Tables" targetRuntime="MyBatis3">
 
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>

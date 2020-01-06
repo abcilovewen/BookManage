@@ -1,7 +1,5 @@
 package com.briup.bookmanage.service.impl;
 
-import com.briup.bookmanage.bean.Borrow;
-import com.briup.bookmanage.bean.BorrowExample;
 import com.briup.bookmanage.bean.ex.BorrowEX;
 import com.briup.bookmanage.mapper.BorrowMapper;
 import com.briup.bookmanage.mapper.ex.BorrowEXMapper;
@@ -53,12 +51,14 @@ public class BorrowServiceImpl implements IBorrowService {
 
     @Override
     public void borrow(Borrow borrow) throws RuntimeException {
-            borrowMapper.insert(borrow);
+        borrowMapper.insert(borrow);
     }
 
     @Override
     public void back(Borrow borrow) throws RuntimeException {
+        borrow.getId();
         borrowMapper.updateByPrimaryKey(borrow);
-    }
+
+}
 
 }

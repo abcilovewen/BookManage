@@ -364,63 +364,63 @@ public class ReaderExample {
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidIsNull() {
-            addCriterion("reader_TypeId is null");
+        public Criteria andReadertypeIdIsNull() {
+            addCriterion("readerType_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidIsNotNull() {
-            addCriterion("reader_TypeId is not null");
+        public Criteria andReadertypeIdIsNotNull() {
+            addCriterion("readerType_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidEqualTo(Integer value) {
-            addCriterion("reader_TypeId =", value, "readerTypeid");
+        public Criteria andReadertypeIdEqualTo(Integer value) {
+            addCriterion("readerType_id =", value, "readertypeId");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidNotEqualTo(Integer value) {
-            addCriterion("reader_TypeId <>", value, "readerTypeid");
+        public Criteria andReadertypeIdNotEqualTo(Integer value) {
+            addCriterion("readerType_id <>", value, "readertypeId");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidGreaterThan(Integer value) {
-            addCriterion("reader_TypeId >", value, "readerTypeid");
+        public Criteria andReadertypeIdGreaterThan(Integer value) {
+            addCriterion("readerType_id >", value, "readertypeId");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("reader_TypeId >=", value, "readerTypeid");
+        public Criteria andReadertypeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("readerType_id >=", value, "readertypeId");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidLessThan(Integer value) {
-            addCriterion("reader_TypeId <", value, "readerTypeid");
+        public Criteria andReadertypeIdLessThan(Integer value) {
+            addCriterion("readerType_id <", value, "readertypeId");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidLessThanOrEqualTo(Integer value) {
-            addCriterion("reader_TypeId <=", value, "readerTypeid");
+        public Criteria andReadertypeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("readerType_id <=", value, "readertypeId");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidIn(List<Integer> values) {
-            addCriterion("reader_TypeId in", values, "readerTypeid");
+        public Criteria andReadertypeIdIn(List<Integer> values) {
+            addCriterion("readerType_id in", values, "readertypeId");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidNotIn(List<Integer> values) {
-            addCriterion("reader_TypeId not in", values, "readerTypeid");
+        public Criteria andReadertypeIdNotIn(List<Integer> values) {
+            addCriterion("readerType_id not in", values, "readertypeId");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidBetween(Integer value1, Integer value2) {
-            addCriterion("reader_TypeId between", value1, value2, "readerTypeid");
+        public Criteria andReadertypeIdBetween(Integer value1, Integer value2) {
+            addCriterion("readerType_id between", value1, value2, "readertypeId");
             return (Criteria) this;
         }
 
-        public Criteria andReaderTypeidNotBetween(Integer value1, Integer value2) {
-            addCriterion("reader_TypeId not between", value1, value2, "readerTypeid");
+        public Criteria andReadertypeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("readerType_id not between", value1, value2, "readertypeId");
             return (Criteria) this;
         }
     }
