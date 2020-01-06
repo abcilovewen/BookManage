@@ -25,7 +25,7 @@ public class AdministratorController {
     @GetMapping("/findAll")
     @ApiOperation(value = "查询全部管理员")
     public Message findAll(){
-        List<Administrator>all=iAdministratorService.findAll();
+        List<Administrator> all=iAdministratorService.findAll();
         return MessageUtil.success(all);
     }
 
