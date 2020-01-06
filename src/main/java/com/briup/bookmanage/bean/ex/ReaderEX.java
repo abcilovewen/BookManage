@@ -11,6 +11,7 @@ public class ReaderEX {
 
     private String name;
 
+    private Integer readerType_Id;
 
     private ReaderType readerType;
 
