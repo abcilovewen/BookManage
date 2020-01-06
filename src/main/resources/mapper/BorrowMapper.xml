@@ -7,7 +7,7 @@
     <result column="book_id" jdbcType="INTEGER" property="bookId" />
     <result column="B_date" jdbcType="TIMESTAMP" property="bDate" />
     <result column="R_date" jdbcType="TIMESTAMP" property="rDate" />
-    <result column="ifback" jdbcType="INTEGER" property="ifback" />
+    <result column="ifback" jdbcType="TINYINT" property="ifback" />
     <result column="fine" jdbcType="DOUBLE" property="fine" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -106,7 +106,7 @@
       B_date, R_date, ifback, 
       fine)
     values (#{id,jdbcType=INTEGER}, #{readerId,jdbcType=INTEGER}, #{bookId,jdbcType=INTEGER}, 
-      #{bDate,jdbcType=TIMESTAMP}, #{rDate,jdbcType=TIMESTAMP}, #{ifback,jdbcType=INTEGER}, 
+      #{bDate,jdbcType=TIMESTAMP}, #{rDate,jdbcType=TIMESTAMP}, #{ifback,jdbcType=TINYINT}, 
       #{fine,jdbcType=DOUBLE})
   </insert>
   <insert id="insertSelective" parameterType="com.briup.bookmanage.bean.Borrow">
@@ -151,7 +151,7 @@
         #{rDate,jdbcType=TIMESTAMP},
       </if>
       <if test="ifback != null">
-        #{ifback,jdbcType=INTEGER},
+        #{ifback,jdbcType=TINYINT},
       </if>
       <if test="fine != null">
         #{fine,jdbcType=DOUBLE},
@@ -183,7 +183,7 @@
         R_date = #{record.rDate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.ifback != null">
-        ifback = #{record.ifback,jdbcType=INTEGER},
+        ifback = #{record.ifback,jdbcType=TINYINT},
       </if>
       <if test="record.fine != null">
         fine = #{record.fine,jdbcType=DOUBLE},
@@ -200,7 +200,7 @@
       book_id = #{record.bookId,jdbcType=INTEGER},
       B_date = #{record.bDate,jdbcType=TIMESTAMP},
       R_date = #{record.rDate,jdbcType=TIMESTAMP},
-      ifback = #{record.ifback,jdbcType=INTEGER},
+      ifback = #{record.ifback,jdbcType=TINYINT},
       fine = #{record.fine,jdbcType=DOUBLE}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -222,7 +222,7 @@
         R_date = #{rDate,jdbcType=TIMESTAMP},
       </if>
       <if test="ifback != null">
-        ifback = #{ifback,jdbcType=INTEGER},
+        ifback = #{ifback,jdbcType=TINYINT},
       </if>
       <if test="fine != null">
         fine = #{fine,jdbcType=DOUBLE},
@@ -236,7 +236,7 @@
       book_id = #{bookId,jdbcType=INTEGER},
       B_date = #{bDate,jdbcType=TIMESTAMP},
       R_date = #{rDate,jdbcType=TIMESTAMP},
-      ifback = #{ifback,jdbcType=INTEGER},
+      ifback = #{ifback,jdbcType=TINYINT},
       fine = #{fine,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>

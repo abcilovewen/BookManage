@@ -14,7 +14,7 @@ public class Borrow implements Serializable {
 
     private Date rDate;
 
-    private Integer ifback;
+    private Byte ifback;
 
     private Double fine;
 
@@ -60,11 +60,11 @@ public class Borrow implements Serializable {
         this.rDate = rDate;
     }
 
-    public Integer getIfback() {
+    public Byte getIfback() {
         return ifback;
     }
 
-    public void setIfback(Integer ifback) {
+    public void setIfback(Byte ifback) {
         this.ifback = ifback;
     }
 

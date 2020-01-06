@@ -415,52 +415,52 @@ public class BorrowExample {
             return (Criteria) this;
         }
 
-        public Criteria andIfbackEqualTo(Integer value) {
+        public Criteria andIfbackEqualTo(Byte value) {
             addCriterion("ifback =", value, "ifback");
             return (Criteria) this;
         }
 
-        public Criteria andIfbackNotEqualTo(Integer value) {
+        public Criteria andIfbackNotEqualTo(Byte value) {
             addCriterion("ifback <>", value, "ifback");
             return (Criteria) this;
         }
 
-        public Criteria andIfbackGreaterThan(Integer value) {
+        public Criteria andIfbackGreaterThan(Byte value) {
             addCriterion("ifback >", value, "ifback");
             return (Criteria) this;
         }
 
-        public Criteria andIfbackGreaterThanOrEqualTo(Integer value) {
+        public Criteria andIfbackGreaterThanOrEqualTo(Byte value) {
             addCriterion("ifback >=", value, "ifback");
             return (Criteria) this;
         }
 
-        public Criteria andIfbackLessThan(Integer value) {
+        public Criteria andIfbackLessThan(Byte value) {
             addCriterion("ifback <", value, "ifback");
             return (Criteria) this;
         }
 
-        public Criteria andIfbackLessThanOrEqualTo(Integer value) {
+        public Criteria andIfbackLessThanOrEqualTo(Byte value) {
             addCriterion("ifback <=", value, "ifback");
             return (Criteria) this;
         }
 
-        public Criteria andIfbackIn(List<Integer> values) {
+        public Criteria andIfbackIn(List<Byte> values) {
             addCriterion("ifback in", values, "ifback");
             return (Criteria) this;
         }
 
-        public Criteria andIfbackNotIn(List<Integer> values) {
+        public Criteria andIfbackNotIn(List<Byte> values) {
             addCriterion("ifback not in", values, "ifback");
             return (Criteria) this;
         }
 
-        public Criteria andIfbackBetween(Integer value1, Integer value2) {
+        public Criteria andIfbackBetween(Byte value1, Byte value2) {
             addCriterion("ifback between", value1, value2, "ifback");
             return (Criteria) this;
         }
 
-        public Criteria andIfbackNotBetween(Integer value1, Integer value2) {
+        public Criteria andIfbackNotBetween(Byte value1, Byte value2) {
             addCriterion("ifback not between", value1, value2, "ifback");
             return (Criteria) this;
         }

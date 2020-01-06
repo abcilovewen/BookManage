@@ -11,6 +11,8 @@ public class BackBookEX {
 
     private Date rDate;
 
+    private int ifBack;
+
     public Integer getId() {
         return id;
     }
@@ -51,6 +53,5 @@ public class BackBookEX {
         this.ifBack = ifBack;
     }
 
-    private int ifBack;
 
 }
