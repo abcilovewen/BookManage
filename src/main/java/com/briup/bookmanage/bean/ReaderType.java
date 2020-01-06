@@ -1,11 +1,10 @@
 package com.briup.bookmanage.bean;
 
-import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 
 public class ReaderType implements Serializable {
     private Integer id;
+
     private String type;
 
     private static final long serialVersionUID = 1L;

@@ -405,6 +405,66 @@ public class BorrowExample {
             return (Criteria) this;
         }
 
+        public Criteria andIfbackIsNull() {
+            addCriterion("ifback is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackIsNotNull() {
+            addCriterion("ifback is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackEqualTo(Byte value) {
+            addCriterion("ifback =", value, "ifback");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackNotEqualTo(Byte value) {
+            addCriterion("ifback <>", value, "ifback");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackGreaterThan(Byte value) {
+            addCriterion("ifback >", value, "ifback");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackGreaterThanOrEqualTo(Byte value) {
+            addCriterion("ifback >=", value, "ifback");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackLessThan(Byte value) {
+            addCriterion("ifback <", value, "ifback");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackLessThanOrEqualTo(Byte value) {
+            addCriterion("ifback <=", value, "ifback");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackIn(List<Byte> values) {
+            addCriterion("ifback in", values, "ifback");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackNotIn(List<Byte> values) {
+            addCriterion("ifback not in", values, "ifback");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackBetween(Byte value1, Byte value2) {
+            addCriterion("ifback between", value1, value2, "ifback");
+            return (Criteria) this;
+        }
+
+        public Criteria andIfbackNotBetween(Byte value1, Byte value2) {
+            addCriterion("ifback not between", value1, value2, "ifback");
+            return (Criteria) this;
+        }
+
         public Criteria andFineIsNull() {
             addCriterion("fine is null");
             return (Criteria) this;

@@ -14,6 +14,8 @@ public class Borrow implements Serializable {
 
     private Date rDate;
 
+    private Byte ifback;
+
     private Double fine;
 
     private static final long serialVersionUID = 1L;
@@ -58,6 +60,14 @@ public class Borrow implements Serializable {
         this.rDate = rDate;
     }
 
+    public Byte getIfback() {
+        return ifback;
+    }
+
+    public void setIfback(Byte ifback) {
+        this.ifback = ifback;
+    }
+
     public Double getFine() {
         return fine;
     }
@@ -77,6 +87,7 @@ public class Borrow implements Serializable {
         sb.append(", bookId=").append(bookId);
         sb.append(", bDate=").append(bDate);
         sb.append(", rDate=").append(rDate);
+        sb.append(", ifback=").append(ifback);
         sb.append(", fine=").append(fine);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
