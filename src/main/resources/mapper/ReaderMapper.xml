@@ -6,7 +6,7 @@
     <result column="sex" jdbcType="VARCHAR" property="sex" />
     <result column="age" jdbcType="INTEGER" property="age" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="readerType_id" jdbcType="INTEGER" property="readerTypeid" />
+    <result column="readerType_id" jdbcType="INTEGER" property="readertypeId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, sex, age, name, reader_TypeId
+    id, sex, age, name, readerType_id
   </sql>
   <select id="selectByExample" parameterType="com.briup.bookmanage.bean.ReaderExample" resultMap="BaseResultMap">
     select
@@ -103,7 +103,7 @@
     insert into L_reader (id, sex, age, 
       name, readerType_id)
     values (#{id,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
-      #{name,jdbcType=VARCHAR}, #{readerTypeid,jdbcType=INTEGER})
+      #{name,jdbcType=VARCHAR}, #{readertypeId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.briup.bookmanage.bean.Reader">
     insert into L_reader
@@ -120,8 +120,8 @@
       <if test="name != null">
         name,
       </if>
-      <if test="readerTypeid != null">
-        reader_TypeId,
+      <if test="readertypeId != null">
+        readerType_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -137,8 +137,8 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="readerTypeid != null">
-        #{readerTypeid,jdbcType=INTEGER},
+      <if test="readertypeId != null">
+        #{readertypeId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -163,8 +163,8 @@
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.readerTypeid != null">
-        reader_TypeId = #{record.readerTypeid,jdbcType=INTEGER},
+      <if test="record.readertypeId != null">
+        readerType_id = #{record.readertypeId,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -177,7 +177,7 @@
       sex = #{record.sex,jdbcType=VARCHAR},
       age = #{record.age,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
-      reader_TypeId = #{record.readerTypeid,jdbcType=INTEGER}
+      readerType_id = #{record.readertypeId,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -194,8 +194,8 @@
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="readerTypeid != null">
-        reader_TypeId = #{readerTypeid,jdbcType=INTEGER},
+      <if test="readertypeId != null">
+        readerType_id = #{readertypeId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -205,7 +205,7 @@
     set sex = #{sex,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
-      reader_TypeId = #{readerTypeid,jdbcType=INTEGER}
+      readerType_id = #{readertypeId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

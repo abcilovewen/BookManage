@@ -7,6 +7,7 @@
     <result column="book_id" jdbcType="INTEGER" property="bookId" />
     <result column="B_date" jdbcType="TIMESTAMP" property="bDate" />
     <result column="R_date" jdbcType="TIMESTAMP" property="rDate" />
+    <result column="ifback" jdbcType="INTEGER" property="ifback" />
     <result column="fine" jdbcType="DOUBLE" property="fine" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -68,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, reader_id, book_id, B_date, R_date, fine
+    id, reader_id, book_id, B_date, R_date, ifback, fine
   </sql>
   <select id="selectByExample" parameterType="com.briup.bookmanage.bean.BorrowExample" resultMap="BaseResultMap">
     select
@@ -102,11 +103,11 @@
   </delete>
   <insert id="insert" parameterType="com.briup.bookmanage.bean.Borrow">
     insert into L_borrow (id, reader_id, book_id, 
-      B_date, R_date, fine
-      )
+      B_date, R_date, ifback, 
+      fine)
     values (#{id,jdbcType=INTEGER}, #{readerId,jdbcType=INTEGER}, #{bookId,jdbcType=INTEGER}, 
-      #{bDate,jdbcType=TIMESTAMP}, #{rDate,jdbcType=TIMESTAMP}, #{fine,jdbcType=DOUBLE}
-      )
+      #{bDate,jdbcType=TIMESTAMP}, #{rDate,jdbcType=TIMESTAMP}, #{ifback,jdbcType=INTEGER}, 
+      #{fine,jdbcType=DOUBLE})
   </insert>
   <insert id="insertSelective" parameterType="com.briup.bookmanage.bean.Borrow">
     insert into L_borrow
@@ -125,6 +126,9 @@
       </if>
       <if test="rDate != null">
         R_date,
+      </if>
+      <if test="ifback != null">
+        ifback,
       </if>
       <if test="fine != null">
         fine,
@@ -145,6 +149,9 @@
       </if>
       <if test="rDate != null">
         #{rDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifback != null">
+        #{ifback,jdbcType=INTEGER},
       </if>
       <if test="fine != null">
         #{fine,jdbcType=DOUBLE},
@@ -175,6 +182,9 @@
       <if test="record.rDate != null">
         R_date = #{record.rDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.ifback != null">
+        ifback = #{record.ifback,jdbcType=INTEGER},
+      </if>
       <if test="record.fine != null">
         fine = #{record.fine,jdbcType=DOUBLE},
       </if>
@@ -190,6 +200,7 @@
       book_id = #{record.bookId,jdbcType=INTEGER},
       B_date = #{record.bDate,jdbcType=TIMESTAMP},
       R_date = #{record.rDate,jdbcType=TIMESTAMP},
+      ifback = #{record.ifback,jdbcType=INTEGER},
       fine = #{record.fine,jdbcType=DOUBLE}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -210,6 +221,9 @@
       <if test="rDate != null">
         R_date = #{rDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="ifback != null">
+        ifback = #{ifback,jdbcType=INTEGER},
+      </if>
       <if test="fine != null">
         fine = #{fine,jdbcType=DOUBLE},
       </if>
@@ -222,6 +236,7 @@
       book_id = #{bookId,jdbcType=INTEGER},
       B_date = #{bDate,jdbcType=TIMESTAMP},
       R_date = #{rDate,jdbcType=TIMESTAMP},
+      ifback = #{ifback,jdbcType=INTEGER},
       fine = #{fine,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
