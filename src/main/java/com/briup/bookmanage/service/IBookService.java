@@ -15,4 +15,8 @@ public interface IBookService {
     void delectBatch(int id)throws RuntimeException;
 
     Book selectById(int id)throws RuntimeException;
+
+    List<Book> selectByFirst(String word)throws RuntimeException;
+
+
 }

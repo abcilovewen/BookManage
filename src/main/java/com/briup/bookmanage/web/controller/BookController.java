@@ -77,4 +77,10 @@ public class BookController {
         Book book=iBookService.selectById(id);
         return  MessageUtil.success(book);
     }
+    @ApiOperation(value = "根据首字母查询")
+    @GetMapping("searchByFirstWord")
+    public Message searchByFirstWord(String word){
+        List<Book>list=iBookService.selectByFirst(word);
+        return MessageUtil.success(list);
+    }
 }

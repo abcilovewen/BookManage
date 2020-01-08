@@ -21,19 +21,19 @@ public class BookServiceImpl implements IBookService {
 
     @Override
     public List<Book> findAll() throws RuntimeException {
-        BookExample bookExample=new BookExample();
-        List<Book> list=bookMapper.selectByExample(bookExample);
+        BookExample bookExample = new BookExample();
+        List<Book> list = bookMapper.selectByExample(bookExample);
         return list;
     }
 
     @Override
     public void saveOrUpdate(Book book) throws RuntimeException {
-        if (book==null){
+        if (book == null) {
             throw new RuntimeException("参数为空");
         }
-        if (book.getId()==null){
+        if (book.getId() == null) {
             bookMapper.insert(book);
-        }else {
+        } else {
             bookMapper.updateByPrimaryKey(book);
         }
     }
@@ -50,7 +50,20 @@ public class BookServiceImpl implements IBookService {
 
     @Override
     public Book selectById(int id) throws RuntimeException {
-        Book book=bookMapper.selectByPrimaryKey(id);
+        Book book = bookMapper.selectByPrimaryKey(id);
         return book;
     }
-}
+
+    @Override
+    public List<Book> selectByFirst(String word) throws RuntimeException {
+        word = word == null ? "" : word;
+        if (word == null && "".equals(word)) {
+            return null;
+        } else {
+            word = "%" + word + "%";
+            return  bookMapper.selectByFirst(word);
+        }
+    }
+    }
+
+
