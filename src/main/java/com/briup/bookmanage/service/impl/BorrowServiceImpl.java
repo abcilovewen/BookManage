@@ -70,4 +70,14 @@ public class BorrowServiceImpl implements IBorrowService {
     public void back(BackBook book) throws RuntimeException {
         backBookMapper.back(book);
     }
+
+    @Override
+    public BorrowEX findBdate(int id) throws RuntimeException {
+         return borrowEXMapper.selectBdate(id);
+    }
+
+    @Override
+    public void fine(int id,Double fine) throws RuntimeException {
+        borrowEXMapper.updatefine(id,fine);
+    }
 }

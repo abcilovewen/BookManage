@@ -11,11 +11,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
 @RestController
@@ -53,12 +51,28 @@ public class BorrowController {
     @PostMapping("/backBook")
     @ApiOperation(value = "归还图书")
     public Message backBook(BackBook book){
+
         if(book.getId()==null && book.getIfback()==0 ){
             return  MessageUtil.success("归还图书失败");
         }else {
+            int id=book.getId();
+            BorrowEX bDate = borrowService.findBdate(id);
+            System.out.println("借书的日期是："+bDate.getbDate());
+            System.out.println("还书的日期是："+book.getrDate());
+            long day = (book.getrDate().getTime()-bDate.getbDate().getTime())/(24 * 60 * 60 * 1000);
+            System.out.println(day);
+            if(day<30){
+                double fine=0.00;
+                System.out.println(fine);
+                borrowService.fine(id,fine);
+
+            }else{
+                double fine =(double) (day - 30)*0.10;
+                System.out.println(fine);
+                borrowService.fine(id,fine);
+            }
             borrowService.back(book);
             return MessageUtil.success("归还图书成功");
-
         }
     }
 }

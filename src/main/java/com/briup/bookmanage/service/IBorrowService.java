@@ -19,4 +19,7 @@ public interface IBorrowService {
 
     //还书
     void back(BackBook book)throws RuntimeException;
+
+    BorrowEX findBdate(int id) throws RuntimeException;
+    void fine(int id,Double fine) throws  RuntimeException;
 }
