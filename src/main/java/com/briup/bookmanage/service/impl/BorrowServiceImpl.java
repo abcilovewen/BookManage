@@ -1,8 +1,12 @@
 package com.briup.bookmanage.service.impl;
 
 import com.briup.bookmanage.bean.Borrow;
+import com.briup.bookmanage.bean.ex.BackBook;
+import com.briup.bookmanage.bean.ex.BorrowBook;
 import com.briup.bookmanage.bean.ex.BorrowEX;
 import com.briup.bookmanage.mapper.BorrowMapper;
+import com.briup.bookmanage.mapper.ex.BackBookMapper;
+import com.briup.bookmanage.mapper.ex.BorrowBookMapper;
 import com.briup.bookmanage.mapper.ex.BorrowEXMapper;
 import com.briup.bookmanage.service.IBorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +22,12 @@ public class BorrowServiceImpl implements IBorrowService {
 
     @Autowired
     private BorrowEXMapper borrowEXMapper;
+
+    @Autowired
+    private BorrowBookMapper borrowBookMapper;
+    @Autowired
+    private BackBookMapper backBookMapper;
+
 
     @Override
     public List<BorrowEX> findAll() throws RuntimeException {
@@ -51,15 +61,13 @@ public class BorrowServiceImpl implements IBorrowService {
     }
 
     @Override
-    public void borrow(Borrow borrow) throws RuntimeException {
-        borrowMapper.insert(borrow);
+    public void borrow(BorrowBook borrow) throws RuntimeException {
+       // borrowMapper.insert(borrow);
+        borrowBookMapper.borrow(borrow);
     }
 
     @Override
-    public void back(Borrow borrow) throws RuntimeException {
-        borrow.getId();
-        borrowMapper.updateByPrimaryKey(borrow);
-
-}
-
+    public void back(BackBook book) throws RuntimeException {
+        backBookMapper.back(book);
+    }
 }

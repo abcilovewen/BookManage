@@ -1,6 +1,8 @@
 package com.briup.bookmanage.web.controller;
 
 import com.briup.bookmanage.bean.Borrow;
+import com.briup.bookmanage.bean.ex.BackBook;
+import com.briup.bookmanage.bean.ex.BorrowBook;
 import com.briup.bookmanage.bean.ex.BorrowEX;
 import com.briup.bookmanage.service.IBorrowService;
 import com.briup.bookmanage.util.Message;
@@ -35,25 +37,26 @@ public class BorrowController {
         borrowService.deleteById(id);
         return MessageUtil.success();
     }
-    @GetMapping("/selectBook")
-    @ApiOperation(value = "查询图书")
-    public Message selectBook(){
-        return null;
-    }
+
     @PostMapping("/borrowBook")
     @ApiOperation(value = "借阅图书")
 
-    public Message borrow(Borrow borrow){
-        borrowService.borrow(borrow);
-        return MessageUtil.success("借阅图书成功");
-    }
+    public Message borrow(BorrowBook borrow){
+        if(borrow.getIfback()==1){
+            return  MessageUtil.success("借阅图书失败，请正确填写信息");
+        }else {
+            borrowService.borrow(borrow);
+            return MessageUtil.success("借阅图书成功");
+        }
+        }
+
     @PostMapping("/backBook")
     @ApiOperation(value = "归还图书")
-    public Message backBook(Borrow borrow){
-        if(borrow.getId()==null){
+    public Message backBook(BackBook book){
+        if(book.getId()==null && book.getIfback()==0 ){
             return  MessageUtil.success("归还图书失败");
         }else {
-            borrowService.back(borrow);
+            borrowService.back(book);
             return MessageUtil.success("归还图书成功");
 
         }
