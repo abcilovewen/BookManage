@@ -2,6 +2,7 @@ package com.briup.bookmanage.web.controller;
 
 import com.briup.bookmanage.bean.ex.BorrowEX;
 import com.briup.bookmanage.service.IBorrowService;
+import io.swagger.annotations.Api;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
@@ -20,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 @RestController
+@Api(description = "下载管理")
 public class ExcelController {
     @Autowired
     private IBorrowService borrowService;
