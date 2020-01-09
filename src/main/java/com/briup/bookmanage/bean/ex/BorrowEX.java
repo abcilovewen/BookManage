@@ -18,6 +18,7 @@ public class BorrowEX implements Serializable {
 
     private Double fine;
 
+
     public Integer getId() {
         return id;
     }

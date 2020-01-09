@@ -4,8 +4,10 @@ import com.briup.bookmanage.bean.Book;
 import com.briup.bookmanage.bean.BookExample;
 import com.briup.bookmanage.bean.Reader;
 import com.briup.bookmanage.bean.ReaderExample;
+import com.briup.bookmanage.bean.ex.BookEX;
 import com.briup.bookmanage.mapper.BookMapper;
 import com.briup.bookmanage.mapper.ReaderMapper;
+import com.briup.bookmanage.mapper.ex.BookEXMapper;
 import com.briup.bookmanage.service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +19,18 @@ public class BookServiceImpl implements IBookService {
 
     @Autowired
     private BookMapper bookMapper;
+    @Autowired
+    private BookEXMapper bookEXMapper;
 
+    @Override
+    public BookEX findStatus(int id) throws RuntimeException {
+        return bookEXMapper.selectStatus(id);
+    }
 
+    @Override
+    public void updateStatus(int id, String status) throws RuntimeException {
+        bookEXMapper.updateStatus(id,status);
+    }
     @Override
     public List<Book> findAll() throws RuntimeException {
         BookExample bookExample = new BookExample();
@@ -64,6 +76,6 @@ public class BookServiceImpl implements IBookService {
             return  bookMapper.selectByFirst(word);
         }
     }
-    }
+}
 
 
