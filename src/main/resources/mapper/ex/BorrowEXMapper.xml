@@ -37,5 +37,13 @@
         and ( b2.name like #{b2Name}or r.name like #{rName})
     </select>
 
+    <select id="selectBdate" resultType="com.briup.bookmanage.bean.ex.BorrowEX">
+        select B_date bDate from L_borrow
+        where id=#{id}
+    </select>
 
+    <update id="updatefine" parameterType="com.briup.bookmanage.bean.ex.BorrowEX">
+        update L_borrow set fine= #{fine}
+        where id=#{id}
+    </update>
 </mapper>

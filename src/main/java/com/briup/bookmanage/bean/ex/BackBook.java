@@ -2,14 +2,16 @@ package com.briup.bookmanage.bean.ex;
 
 import java.util.Date;
 
-public class BorrowBookEX {
+public class BackBook {
     private Integer id;
-    //图书id
+
     private Integer readerId;
-    //读者id
+
     private Integer bookId;
-    //借阅日期
-    private Date bDate;
+
+    private Date rDate;
+
+    private Byte ifback;
 
     public Integer getId() {
         return id;
@@ -35,23 +37,21 @@ public class BorrowBookEX {
         this.bookId = bookId;
     }
 
-    public Date getbDate() {
-        return bDate;
+    public Date getrDate() {
+        return rDate;
     }
 
-    public void setbDate(Date bDate) {
-        this.bDate = bDate;
+    public void setrDate(Date rDate) {
+        this.rDate = rDate;
     }
 
-    public int getIfBack() {
-        return ifBack;
+    public Byte getIfback() {
+        return ifback;
     }
 
-    public void setIfBack(int ifBack) {
-        this.ifBack = ifBack;
+    public void setIfback(Byte ifback) {
+        this.ifback = ifback;
     }
 
-    //是否归还
-    private int ifBack;
 
 }

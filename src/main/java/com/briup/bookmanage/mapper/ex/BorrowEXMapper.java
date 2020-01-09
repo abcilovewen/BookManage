@@ -10,8 +10,7 @@ public interface BorrowEXMapper {
     List<BorrowEX> selectBookName(String word);
     List<BorrowEX> selectReaderName(String word);
     List<BorrowEX> selectName(String word);
-    //借书
-    BorrowEX borrow();
-    //还书
-    BorrowEX back();
+
+    BorrowEX selectBdate(int id);
+    int updatefine(int id,Double fine);
 }
