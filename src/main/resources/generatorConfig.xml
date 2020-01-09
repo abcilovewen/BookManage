@@ -50,10 +50,8 @@
 
 
 		<!-- 映射配置 -->
-		<table tableName="L_administrator" domainObjectName="Administrator"></table>
-		<table tableName="L_book" domainObjectName="Book"></table>
-		<table tableName="L_borrow" domainObjectName="Borrow"></table>
-		<table tableName="L_reader" domainObjectName="Reader"></table>
-		<table tableName="L_readerType" domainObjectName="ReaderType"></table>
+		<table tableName="L_room" domainObjectName="Room"></table>
+		<table tableName="L_roomType" domainObjectName="RoomType"></table>
+
 	</context>
 </generatorConfiguration>
