@@ -50,8 +50,8 @@
 
 
 		<!-- 映射配置 -->
-		<table tableName="L_room" domainObjectName="Room"></table>
-		<table tableName="L_roomType" domainObjectName="RoomType"></table>
+		<table tableName="L_mess" domainObjectName="Mess"></table>
+
 
 	</context>
 </generatorConfiguration>
